@@ -27,7 +27,7 @@ export class EditarPage implements OnInit {
   ngOnInit() {
   this.model = new Produto();
   
-  this.route.queryParamMap.subscribe( data => {
+  this.route.queryParams.subscribe( data => {
     if (data['id']){
       this.produtoProvider.get(data['id'])
       .then((result:any)=>{
@@ -65,13 +65,14 @@ save() {
     .then(() => {
       this.toastCtrl.create({ 
         message: 'Produto salvo.', 
-        duration: 3000, 
+        duration: 1000, 
         position: 'bottom' 
       }).then((toastData)=>{
         console.log(toastData);
         toastData.present();
       });
       this.navCtrl.pop();
+      
     })
     .catch(() => {
       this.toastCtrl.create({ 

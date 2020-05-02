@@ -12,10 +12,10 @@
     <ion-item-sliding *ngFor="let produto of produtos">
  
       <ion-item (click)="editarProdutos(produto.id)">
-       <ion-label><h1>{{ produto.nome }}</h1></ion-label>
-        <ion-label>  <h6>{{ produto.categoria_nome }}</h6> </ion-label>
-          <!-- <ion-label> <h4>{{ produto.data | date:'dd/MM/yyyy' }}</h4> </ion-label> -->
-            <!-- <ion-label> <h5 class="preco">{{ produto.preco | currency:'BRL':true }}</h5> </ion-label> -->
+         <ion-label><h1>{{ produto.nome }}</h1></ion-label>
+         <ion-label>  <h6>{{ produto.categoria_nome }}</h6> </ion-label>
+    <!-- <ion-label> <h4>{{ produto.data | date:'dd/MM/yyyy' }}</h4> </ion-label> -->
+    <ion-label> <h5 class="preco">{{ produto.preco }}</h5> </ion-label>
       </ion-item>
  
       <ion-item-options side="end">

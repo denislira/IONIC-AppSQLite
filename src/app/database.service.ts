@@ -57,11 +57,11 @@ export class DatabaseService {
           ['insert into categoria (nome) values (?)', ['Bebidas']],
           ['insert into categoria (nome) values (?)', ['Congelados']],
         ])
-        .then(() => {alert('Dados incluidos')})
-        .catch(e => {alert(`Erro ao inserir dados ${e}`)});
+        .then(() => {console.log('Dados incluidos')})
+        .catch(e => {console.log(`Erro ao inserir dados ${e}`)});
       }
         })
-        .catch(e => {alert(`Erro ao consultar dados! ${e}`)});
+        .catch(e => {console.log(`Erro ao consultar dados! ${e}`)});
   }
 
   private async addCategorias(db: SQLiteObject){
@@ -71,14 +71,14 @@ export class DatabaseService {
         db.sqlBatch([
           ['insert into categoria (nome) values (?)', ['Roupas']],
         ])
-          .then(() => { alert('Dados incluidos'); })
-          .catch(e => { alert(`Erro ao inserir dados ${e}`); });
+          .then(() => { console.log('Dados incluidos'); })
+          .catch(e => { console.log(`Erro ao inserir dados ${e}`); });
       }else{
-        alert('JA existe');
+        console.log('JA existe');
       }
     }
     catch (e_1) {
-      alert(`Erro ao consultar dados! ${e_1}`);
+      console.log(`Erro ao consultar dados! ${e_1}`);
     }
   }
 

@@ -26,7 +26,7 @@ export class HomePage {
 
   ngOnInit() {
     this.getAllProdutos();
-    //this.dbProvider.criarDatabase();
+    
   }
 
   ionViewWillLeave(){
@@ -50,7 +50,7 @@ export class HomePage {
   }
 
   editarProdutos(id:number){
-    this.router.navigate(['/editar', {id: id}]);
+    this.router.navigate(['/editar', id]);
   }
 
   removerProdutos(produto:Produto){
