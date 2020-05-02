@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-searchbar (ionInput)="filtrarProdutos($event)" [(ngModel)]="searchText"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let produto of produtos">
+ 
+      <ion-item (click)="editarProdutos(produto.id)">
+       <ion-label><h1>{{ produto.nome }}</h1></ion-label>
+        <ion-label>  <h6>{{ produto.categoria_nome }}</h6> </ion-label>
+          <!-- <ion-label> <h4>{{ produto.data | date:'dd/MM/yyyy' }}</h4> </ion-label> -->
+            <!-- <ion-label> <h5 class="preco">{{ produto.preco | currency:'BRL':true }}</h5> </ion-label> -->
+      </ion-item>
+ 
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="removerProdutos(produto)">
+          <ion-icon name="trash"></ion-icon>
+          Excluir
+        </ion-item-option>
+      </ion-item-options>
+    
+    </ion-item-sliding>
+    
+  </ion-list>
+ 
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addProdutos()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+ 
+</ion-content>
+ 
+<ion-footer>
+  <!-- <ion-button (click)="criar()">criar categorias</ion-button> -->
+  <ion-toolbar>
+    <p>Total: {{ produtos.length }}</p>
+    <ion-list>
+      <ion-item no-lines>
+        <ion-label>Listar Inativos</ion-label>
+        <ion-toggle name="listarInativos" [(ngModel)]="onlyInactives" (ionChange)="getAllProdutos()"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-toolbar>
+</ion-footer>

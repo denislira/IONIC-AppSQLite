@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>editar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+ 
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="model.nome"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label stacked>Preço</ion-label>
+      <ion-input type="number" name="preco" [(ngModel)]="model.preco"></ion-input>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label stacked>Vencimento</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" name="data" min="2018" max="2020-12-31" [(ngModel)]="model.data"></ion-datetime>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label stacked>Categoria</ion-label>
+      <ion-select name="categoria_id" [(ngModel)]="model.categoria_id">
+        <ion-select-option *ngFor="let categoria of categorias" value="{{ categoria.id }}">{{ categoria.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+ 
+    <ion-item>
+      <ion-label>Ativo</ion-label>
+      <ion-checkbox name="ativo" [(ngModel)]="model.ativo"></ion-checkbox>
+    </ion-item>
+ 
+  </ion-list>
+ 
+  <ion-button (click)="save()">Salvar</ion-button>
+  <ion-button color="warning" (click)="voltarHome()">voltar</ion-button>
+</ion-content>
